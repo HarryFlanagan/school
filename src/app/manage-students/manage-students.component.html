@@ -1,0 +1,50 @@
+<h1>Harry Flanagan - Final Cloud Assignment</h1>
+<h2>School</h2>
+
+<body>
+    <form [formGroup]="newStudentForm" (ngSubmit)="onSubmit()">
+
+        <div>
+            <label for="studentId">
+            StudentId
+            </label>
+            <input id="studentId" type="text" formControlName="studentId">
+        </div>
+        <div>
+            <label for="name">
+                Name
+            </label>
+            <input id="name" type="text" formControlName="name">
+        </div>
+        <div>
+            <label for="mathsGrade">
+                Maths Grade
+            </label>
+            <input id="mathsGrade" type="number" formControlName="mathsGrade">
+        </div>
+        <div>
+            <label for="englishGrade">
+                English Grade
+            </label>
+            <input id="englishGrade" type="number" formControlName="englishGrade">
+        </div>
+        <div>
+            <label for="scienceGrade">
+                Science Grade
+            </label>
+            <input id="scienceGrade" type="number" formControlName="scienceGrade">
+        </div>
+
+        <button class="button" type="submit">Add Student</button>
+
+    </form>
+    <div *ngFor="let s of listStudents" class="card">
+        <div class="container">
+          <h4><b>{{s.studentId}} : {{s.name}}</b></h4>
+          <h5>Final Grade: {{s.finalGrade}}</h5>
+          <h5 *ngIf="s.passed != 'Fail'" style="color: green;">{{s.passed}}</h5>
+
+          <h5 *ngIf="s.passed == 'Fail'" style="color: red;">{{s.passed}}</h5>
+        </div>
+      </div>
+</body>
